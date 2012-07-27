@@ -1,13 +1,10 @@
-I hate GIT soooo much. I spend more time screwing with it than making stuff. That is just wrong. I miss Subversion. oh well....
+This is a AVR-GCC C project for the Atmel attiny85 µC. Its just a scratch pad as I learn
+and try out new stuff. 
 
-another edit test
 
 TODO
-* access different registers
-* send stream of bytes, a message.
-* needs pull-up resistors on TWI lines
+* get remote LED blinking
 
 
-Questions
-Buffer size?
+NOTES
 pull-ups are 4k7
