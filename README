@@ -1,0 +1,9 @@
+TODO
+* access different registers
+* send stream of bytes, a message.
+* needs pull-up resistors on TWI lines
+
+
+Questions
+Buffer size?
+pull-ups are 4k7
