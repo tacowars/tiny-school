@@ -1,5 +1,6 @@
-This is a AVR-GCC C project for the Atmel attiny85 µC. Its just a scratch pad as I learn
-and try out new stuff. 
+This is an AVR-GCC C project for the Atmel attiny85.
+Mainly I'm trying out I2C libraries and learning the
+ins and outs of the peripherals on the tiny85.
 
 
 TODO
