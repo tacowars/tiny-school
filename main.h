@@ -8,7 +8,9 @@
 #ifndef MAIN_H_
 #define MAIN_H_
 
-char temp1[18];
+#define I2C_SLAVE_ADDR  0x2
+#define LED PB3
+
 void dbg_putstring(char[]);
 void chipTempRaw(void);
 int chipTemp(int);

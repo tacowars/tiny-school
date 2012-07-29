@@ -1,7 +1,8 @@
-main.d main.o: ../main.c ../usiTwiSlave.h ../main.h ../dbg_putchar.h
+main.d main.o: ../main.c ../libs/usiTwiSlave.h ../libs/dbg_putchar.h \
+ ../main.h
 
-../usiTwiSlave.h:
+../libs/usiTwiSlave.h:
+
+../libs/dbg_putchar.h:
 
 ../main.h:
-
-../dbg_putchar.h:

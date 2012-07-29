@@ -4,22 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../dbg_putchar.c \
-../i2c.c \
-../main.c \
-../usiTwiSlave.c 
+../main.c 
 
 OBJS += \
-./dbg_putchar.o \
-./i2c.o \
-./main.o \
-./usiTwiSlave.o 
+./main.o 
 
 C_DEPS += \
-./dbg_putchar.d \
-./i2c.d \
-./main.d \
-./usiTwiSlave.d 
+./main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

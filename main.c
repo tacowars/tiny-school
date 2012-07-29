@@ -13,12 +13,11 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include <util/delay_basic.h>
-#include "usiTwiSlave.h"
+#include "libs/usiTwiSlave.h"
+#include "libs/dbg_putchar.h"
 #include "main.h"
-#include "dbg_putchar.h"
 
-#define I2C_SLAVE_ADDR  0x2
-#define LED PB3
+char temp1[18];
 char writemsg[] = "-- write callback fired --";
 
 // Somewhere to store the values the master writes to i2c register 2 and 3.
@@ -55,7 +54,7 @@ void potRead(void) {
   ADCSRA |= _BV( ADEN ) | _BV( ADSC );               // Enable AD and start conversion
   while (( ADCSRA & _BV( ADSC )));                   // Wait until conversion is finished
   //dbg_putstring(itoa(ADC, temp1, 10));
-  //return ADC;										 //( ADCL | ( ADCH << 8 ));// - 262;// last # is Tos offset
+  //return ADC;										 //( ADCL | ( ADCH << 8 ));
 }
 
 // A callback triggered when the i2c master attempts to read from a register.
