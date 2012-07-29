@@ -22,14 +22,14 @@
 char writemsg[] = "-- write callback fired --";
 
 // Somewhere to store the values the master writes to i2c register 2 and 3.
-static volatile uint8_t i2cReg2 = 0;
-static volatile uint8_t i2cReg3 = 0;
+//static volatile uint8_t i2cReg2 = 0;
+//static volatile uint8_t i2cReg3 = 0;
 
 int main(void)
 {
 	char bootmsg[] = "-- Tiny85 Boot --";
-	int rawTemp;
-	//char temp1[4];
+//	int rawTemp;
+//	char temp1[4];
 
 	DDRB  |= 0x00; // set PORTB to all inputs
 	dbg_tx_init();
@@ -72,11 +72,8 @@ uint8_t i2cReadFromRegister(uint8_t reg)
 		case 2:
 			return ADCH;
 		case 3:
-			PORTB |= (1 << LED); //LED HIGH
+			PORTB ^= (1 << LED); //LED TOGGLE
 			return 3;
-		case 4:
-			PORTB = ~(_BV(LED)); //LED LOW
-			return 4;
 		default: 			// catchall for unassigned register cases
 			return 0;
 	}
@@ -93,13 +90,6 @@ void i2cWriteToRegister(uint8_t reg, uint8_t value)
 //			break;
 //		case 3:
 //			i2cReg3 = value;
-//			break;
-//		case 7:
-//			PORTB |= (0 << LED); //LED LOW
-//			PORTB |= ~(_BV(LED)); //LED LOW
-//			break;
-//		case 9:
-//			PORTB ^= 1 << _BV(LED); // LED Toggle test
 //			break;
 //
 //	}

@@ -7,8 +7,11 @@ ins and outs of the peripherals on the tiny85.
 
 
 ### TODO
-- get remote LED blinking
+- refactor
+- ~~get remote LED blinking~~
 
 
 ### NOTES
 - pull-ups are 4k7
+- TWI works with single bytes at a time
+- reading clears the register
