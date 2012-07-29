@@ -36,7 +36,7 @@ int main(void)
 	DDRB |= (1 << LED); // set LED as output
 
 	usiTwiSlaveInit(I2C_SLAVE_ADDR, i2cReadFromRegister, i2cWriteToRegister);
-	sei();
+	sei(); // Enables interrupts by setting the global interrupt mask
 	while(1) {
 		//rawTemp = chipTempRaw();
 		//dbg_putstring(itoa(rawTemp, temp1, 10));
@@ -73,7 +73,12 @@ uint8_t i2cReadFromRegister(uint8_t reg)
 		case 3:
 			PORTB ^= (1 << LED); //LED TOGGLE
 			return 3;
-		default: 			// catchall for unassigned register cases
+		case 4:
+			chipTempRaw();
+			return ADCL;
+		case 5:
+			return ADCH;
+		default:
 			return 0;
 	}
 }
@@ -115,6 +120,6 @@ void chipTempRaw(void) {
   ADCSRA |= _BV( ADEN ) | _BV( ADSC );               // Enable AD and start conversion
   while (( ADCSRA & _BV( ADSC )));                   // Wait until conversion is finished
   //dbg_putstring(itoa(ADC, temp1, 10));
-  //return ADC;										 //( ADCL | ( ADCH << 8 ));// - 262;// last # is Tos offset
+  //return ADC;										 //( ADCL | ( ADCH << 8 ));
 }
 
