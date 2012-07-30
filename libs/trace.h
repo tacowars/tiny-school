@@ -8,6 +8,8 @@
  * ----------------------------------------------------------------------------
  */
 
+
+
 #ifndef DBG_PUTCHAR_H
 #define DBG_PUTCHAR_H
 
@@ -50,6 +52,7 @@
  * NDLY = (F_CPU/BAUDRATE-16)/4+1
  */
 extern void dbg_putchar(uint8_t c);
+extern void dbg_putstring(char string[]);
 
 #else
   #define dbg_tx_init()		

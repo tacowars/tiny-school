@@ -3,8 +3,8 @@
 #include <Wire.h>
 
 int led = 13;
-int position = 0;
-int temp = 0;
+int pos = 0;
+int chiptemp = 0;
 
 void setup()
 {
@@ -17,16 +17,16 @@ void setup()
 void loop()
 {
   digitalWrite(led, HIGH);
-  delay(100);
+  delay(333);
 
   digitalWrite(led, LOW);
-  delay(100);
+  delay(333);
   
-  position = getPot();
-  Serial.println(position);
+  pos = getPot();
+  Serial.println(pos);
   
-  position = getTemp();
-  Serial.println(position);
+  chiptemp = getTemp();
+  Serial.println(chiptemp);
   
   toggleLED();
   
@@ -94,8 +94,8 @@ int getTemp() {
   
   Serial.println(x5);         // print the character
   
-  int reading = ( x4 | ( x5 << 8 ));
-  return reading;
+  int newtemp = ( x4 | ( x5 << 8 ));
+  return newtemp;
 }
 
 void toggleLED() {

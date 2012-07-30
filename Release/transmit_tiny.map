@@ -32,7 +32,7 @@ signature        0x00840000         0x00000400         rw !x
 Linker script and memory map
 
 LOAD /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn85.o
-LOAD ./libs/dbg_putchar.o
+LOAD ./libs/trace.o
 LOAD ./libs/usiTwiSlave.o
 LOAD ./main.o
 LOAD /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a
@@ -129,7 +129,7 @@ LOAD /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x394
+.text           0x00000000      0x390
  *(.vectors)
  .vectors       0x00000000       0x1e /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn85.o
                 0x00000000                __vectors
@@ -198,43 +198,43 @@ LOAD /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a
                 0x00000054                __vector_2
                 0x00000054                __vector_8
                 0x00000054                __vector_1
- .text          0x00000056       0x38 ./libs/dbg_putchar.o
+ .text          0x00000056       0x58 ./libs/trace.o
                 0x00000056                dbg_putchar
- .text          0x0000008e      0x160 ./libs/usiTwiSlave.o
-                0x0000008e                usiTwiSlaveInit
-                0x000000b8                __vector_13
-                0x000000f4                __vector_14
- .text          0x000001ee      0x11c ./main.o
-                0x000001ee                potRead
-                0x0000021c                dbg_putstring
-                0x0000023c                i2cWriteToRegister
-                0x00000244                main
-                0x0000028a                chipTempRaw
-                0x000002b6                i2cReadFromRegister
- .text          0x0000030a        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_exit.o)
- .text          0x0000030a        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_copy_data.o)
- .text          0x0000030a        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_clear_bss.o)
- .text          0x0000030a        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/libc.a(itoa.o)
- .text          0x0000030a        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/libc.a(strrev.o)
- .text          0x0000030a        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_udivmodhi4.o)
-                0x0000030a                . = ALIGN (0x2)
+                0x0000008e                dbg_putstring
+ .text          0x000000ae      0x160 ./libs/usiTwiSlave.o
+                0x000000ae                usiTwiSlaveInit
+                0x000000d8                __vector_13
+                0x00000114                __vector_14
+ .text          0x0000020e       0xf8 ./main.o
+                0x0000020e                i2cWriteToRegister
+                0x00000216                main
+                0x0000025c                chipTempRaw
+                0x00000284                potRead
+                0x000002b2                i2cReadFromRegister
+ .text          0x00000306        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_exit.o)
+ .text          0x00000306        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_copy_data.o)
+ .text          0x00000306        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_clear_bss.o)
+ .text          0x00000306        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/libc.a(itoa.o)
+ .text          0x00000306        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/libc.a(strrev.o)
+ .text          0x00000306        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_udivmodhi4.o)
+                0x00000306                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000030a        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_exit.o)
- .text.libgcc   0x0000030a        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_copy_data.o)
- .text.libgcc   0x0000030a        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000306        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_exit.o)
+ .text.libgcc   0x00000306        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000306        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_clear_bss.o)
  .text.avr-libc
-                0x0000030a       0x3e /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/libc.a(itoa.o)
-                0x0000030a                itoa
+                0x00000306       0x3e /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/libc.a(itoa.o)
+                0x00000306                itoa
  .text.avr-libc
-                0x00000348       0x20 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/libc.a(strrev.o)
-                0x00000348                strrev
- .text.libgcc   0x00000368       0x28 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_udivmodhi4.o)
-                0x00000368                __udivmodhi4
-                0x00000390                . = ALIGN (0x2)
+                0x00000344       0x20 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/libc.a(strrev.o)
+                0x00000344                strrev
+ .text.libgcc   0x00000364       0x28 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_udivmodhi4.o)
+                0x00000364                __udivmodhi4
+                0x0000038c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000390        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_exit.o)
-                0x00000390                exit
-                0x00000390                _exit
+ .fini9         0x0000038c        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_exit.o)
+                0x0000038c                exit
+                0x0000038c                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -253,15 +253,15 @@ LOAD /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000390        0x4 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_exit.o)
+ .fini0         0x0000038c        0x4 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_exit.o)
  *(.fini0)
-                0x00000394                _etext = .
+                0x00000390                _etext = .
 
-.data           0x00800060       0x2e load address 0x00000394
+.data           0x00800060       0x2e load address 0x00000390
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn85.o
- .data          0x00800060        0x0 ./libs/dbg_putchar.o
+ .data          0x00800060        0x0 ./libs/trace.o
  .data          0x00800060        0x1 ./libs/usiTwiSlave.o
  .data          0x00800061       0x2d ./main.o
                 0x00800073                writemsg
@@ -283,7 +283,7 @@ LOAD /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a
                 0x0080008e                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x0080008e        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/../../../../avr/lib/avr25/crttn85.o
- .bss           0x0080008e        0x0 ./libs/dbg_putchar.o
+ .bss           0x0080008e        0x0 ./libs/trace.o
  .bss           0x0080008e        0x6 ./libs/usiTwiSlave.o
  .bss           0x00800094        0x0 ./main.o
  .bss           0x00800094        0x0 /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a(_exit.o)
@@ -297,8 +297,8 @@ LOAD /usr/local/CrossPack-AVR-20120217/lib/gcc/avr/4.5.1/avr25/libgcc.a
  COMMON         0x00800094       0x12 ./main.o
                 0x00800094                temp1
                 0x008000a6                PROVIDE (__bss_end, .)
-                0x00000394                __data_load_start = LOADADDR (.data)
-                0x000003c2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000390                __data_load_start = LOADADDR (.data)
+                0x000003be                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008000a6        0x0
                 0x008000a6                PROVIDE (__noinit_start, .)

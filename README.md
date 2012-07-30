@@ -7,11 +7,11 @@ ins and outs of the peripherals on the tiny85.
 
 
 ### TODO
-- hook internal temp again under a new register
 - low power, sleep until master calls?
 - servo
 - refactor
 - ~~get remote LED blinking~~
+- ~~hook internal temp again under a new register~~
 
 
 ### NOTES

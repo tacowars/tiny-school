@@ -11,8 +11,8 @@
 #define I2C_SLAVE_ADDR  0x2
 #define LED PB3
 
-void dbg_putstring(char[]);
 void chipTempRaw(void);
+void potRead(void);
 int chipTemp(int);
 uint8_t i2cReadFromRegister(uint8_t);
 void i2cWriteToRegister(uint8_t, uint8_t);

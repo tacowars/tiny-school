@@ -12,7 +12,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-#include "dbg_putchar.h"
+#include "trace.h"
 
 #if DBG_UART_ENABLE
 
@@ -85,3 +85,14 @@ void dbg_putchar(uint8_t c)
 
 #endif
 
+void dbg_putstring(char string[])
+{
+   int i=0;
+   while (string[i] != '\0')
+   {
+      dbg_putchar(string[i]);
+      i++;
+   }
+   dbg_putchar(13); // Newline
+   dbg_putchar(10);
+}
