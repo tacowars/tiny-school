@@ -2,7 +2,6 @@
  * main.h
  *
  *  Created on: Jul 22, 2012
- *      Author: patrick
  */
 
 #ifndef MAIN_H_

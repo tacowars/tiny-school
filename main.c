@@ -2,7 +2,6 @@
  * main.c - attiny85 school
  *
  *  Created on: Jul 12, 2012
- *      Author: patrick
  */
 
 //#define F_CPU 16000000UL  // 16 MHz
