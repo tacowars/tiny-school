@@ -5,7 +5,7 @@
  *      Author: patrick
  */
 
-#define F_CPU 8000000UL  // 8 MHz
+//#define F_CPU 16000000UL  // 16 MHz
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
